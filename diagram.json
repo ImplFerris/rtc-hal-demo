@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "impl Ferris (https://github.com/implferris)",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": -19.2,
+      "left": -81.56,
+      "attrs": { "builder": "rust-nostd-esp" }
+    },
+    {
+      "type": "wokwi-ds1307",
+      "id": "rtc1",
+      "top": 23.4,
+      "left": 182.5,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 188.4,
+      "left": 90.2,
+      "attrs": { "color": "red" }
+    }
+  ],
+  "connections": [
+    ["esp:TX", "$serialMonitor:RX", "", []],
+    ["esp:RX", "$serialMonitor:TX", "", []],
+    ["esp:22", "rtc1:SCL", "blue", ["h57.6", "v38.6"]],
+    ["esp:21", "rtc1:SDA", "green", ["h0"]],
+    ["esp:3V3", "rtc1:5V", "red", ["v-4.9", "h95.46", "v-86"]],
+    ["led1:A", "rtc1:SQW", "magenta", ["h28.8", "v-153"]],
+    ["esp:GND.2", "rtc1:GND", "gray", ["h-38.64", "v-168.2", "h307.2"]],
+    ["led1:C", "esp:GND.2", "gray", ["v-9.6", "h-220.4", "v-91"]],
+    ["rtc1:SDA", "esp:D21", "green", ["h-115.2", "v-14.2"]],
+    ["rtc1:SCL", "esp:D22", "blue", ["h-86.4", "v-52.6"]]
+  ],
+  "serialMonitor": { "display": "terminal", "convertEol": true },
+  "dependencies": {}
+}
