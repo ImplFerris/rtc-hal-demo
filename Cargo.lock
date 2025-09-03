@@ -1161,7 +1161,6 @@ dependencies = [
 name = "rtc-hal-demo"
 version = "0.1.0"
 dependencies = [
- "anyhow",
  "critical-section",
  "defmt 1.0.1",
  "ds1307-rtc",
