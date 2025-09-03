@@ -1153,6 +1153,9 @@ name = "rtc-hal"
 version = "0.2.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "20ac63ffb045dbf7b7387322413df8330c00bad4983feff4a3a58a7c172ada80"
+dependencies = [
+ "defmt 1.0.1",
+]
 
 [[package]]
 name = "rtc-hal-demo"

@@ -72,7 +72,9 @@ fn main() -> ! {
         info!("----------");
         info!("getting datetime");
         info!("----------");
-        app.print_current_time().unwrap();
+        if let Err(e) = app.print_current_time() {
+            info!("RTC Error: {}", e);
+        }
         let delay_start = Instant::now();
         while delay_start.elapsed() < Duration::from_minutes(1) {}
     }

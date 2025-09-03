@@ -1,5 +1,6 @@
 use anyhow::Result;
 use esp_alloc as _;
+use rtc_hal::error::Error;
 use rtc_hal::square_wave::{SquareWave, SquareWaveFreq};
 use rtc_hal::{datetime::DateTime, rtc::Rtc};
 
@@ -22,11 +23,8 @@ where
         Ok(())
     }
 
-    pub fn print_current_time(&mut self) -> Result<()> {
-        let current_time = self
-            .rtc
-            .get_datetime()
-            .map_err(|e| anyhow::anyhow!("RTC error: {:?}", e))?;
+    pub fn print_current_time(&mut self) -> core::result::Result<(), rtc_hal::error::ErrorKind> {
+        let current_time = self.rtc.get_datetime().map_err(|e| e.kind())?;
 
         defmt::info!(
             "📅 {}-{:02}-{:02} 🕐 {:02}:{:02}:{:02}",
