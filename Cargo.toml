@@ -1,7 +1,7 @@
 [package]
 edition = "2021"
 name = "rtc-hal-demo"
-version = "0.1.0"
+version = "0.1.1"
 
 [[bin]]
 name = "rtc-hal-demo"
@@ -22,9 +22,9 @@ esp-println = { version = "0.14.0", features = ["defmt-espflash", "esp32"] }
 
 embedded-hal-bus = "0.3.0"
 
-rtc-hal = { version = "0.2.4", features = ["defmt"] }
-ds3231-rtc = { version = "0.2.1", optional = true }
-ds1307-rtc = { version = "0.2.1", optional = true }
+rtc-hal = { version = "0.3.0", features = ["defmt"] }
+ds3231-rtc = { version = "0.2.2", optional = true }
+ds1307-rtc = { version = "0.2.2", optional = true }
 
 [features]
 default = ["ds1307"]        # DS1307 is the default
